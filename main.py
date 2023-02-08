@@ -20,7 +20,7 @@ async def send(message: types.Message):
         max_tokens=1500,
         top_p=0.3,
         frequency_penalty=0.0,
-        presence_penalty=0.75,
+        presence_penalty=0.3,
         stop=[" Human:", " AI:"]
     )
     await message.answer(response['choices'][0]['text'])
