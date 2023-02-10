@@ -16,11 +16,11 @@ async def send(message: types.Message):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=message.text,
-        temperature=0.3,
-        max_tokens=1500,
-        top_p=0.3,
+        temperature=0.01,
+        max_tokens=2048,
+        top_p=0.1,
         frequency_penalty=0.0,
-        presence_penalty=0.3,
+        presence_penalty=0.0,
         stop=[" Human:", " AI:"]
     )
     await message.answer(response['choices'][0]['text'])
