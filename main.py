@@ -1,9 +1,11 @@
+# добавление бибилотек
 import openai
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 import tokens
 
+# подключение тоекнов
 token = tokens.bot_token
 openai.api_key = tokens.openAI_token
 
@@ -11,6 +13,7 @@ bot = Bot(token)
 dp = Dispatcher(bot)
 
 
+# хендлер и вызов функции
 @dp.message_handler()
 async def send(message: types.Message):
     response = openai.Completion.create(
