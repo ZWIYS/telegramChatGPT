@@ -21,26 +21,28 @@ async def welcome(message: types.Message):
                          f' чем могу помочь?')
 
 
-@dp.message_handler(lambda message: 'Привет!' or 'Привет' in message.text)
-async def text_handler(message: types.Message):
-    await message.answer("Здравствуйте! могу вам помочь?")
-
-
 # хендлер и вызов функции
 @dp.message_handler()
 @anly.analytics
 async def send(message: types.Message):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=message.text,
-        temperature=0,
-        max_tokens=2048,
-        top_p=0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0,
-        stop=[" Human:", " AI:"]
-    )
-    
-    await message.answer(response['choices'][0]['text'])
+
+    if message.text == "Привет!" or message.text == "Привет":
+        await message.answer(
+            f'Привет {message.from_user.first_name},'f' чем могу помочь?'
+        )
+
+    else:
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=message.text,
+            temperature=0,
+            max_tokens=2048,
+            top_p=0,
+            frequency_penalty=0.0,
+            presence_penalty=0.0,
+            stop=[" Human:", " AI:"]
+        )
+
+        await message.answer(response['choices'][0]['text'])
 
 executor.start_polling(dp, skip_updates=True)
