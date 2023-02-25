@@ -4,6 +4,7 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 import tokens
+import analytics as anly
 
 # подключение тоекнов
 token = tokens.bot_token
@@ -15,6 +16,7 @@ dp = Dispatcher(bot)
 
 # хендлер и вызов функции
 @dp.message_handler()
+@anly.analytics
 async def send(message: types.Message):
     response = openai.Completion.create(
         model="text-davinci-003",
