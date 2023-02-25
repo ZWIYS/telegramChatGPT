@@ -25,4 +25,15 @@ response = openai.Completion.create(
         presence_penalty=0.3,
         stop=[" Human:", " AI:"]
     )
+
+
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=message.text,
+        temperature=0.4,
+        max_tokens=2048,
+        top_p=0.3,
+        frequency_penalty=0.7,
+        presence_penalty=0.3,
+        stop=[" Human:", " AI:"]
 """
