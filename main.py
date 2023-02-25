@@ -6,7 +6,7 @@ from aiogram.utils import executor
 import tokens
 import analytics as anly
 
-# подключение тоекнов
+a
 token = tokens.bot_token
 openai.api_key = tokens.openAI_token
 

@@ -1,9 +1,6 @@
 from aiogram import types
 
 
-logs = open("logs.txt", "w")
-
-
 def analytics(func: callable):
     total_messages = 0
     users = set()
