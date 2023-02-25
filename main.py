@@ -28,7 +28,7 @@ async def send(message: types.Message):
 
     if message.text == "Привет!" or message.text == "Привет":
         await message.answer(
-            f'Привет {message.from_user.first_name},'f' чем могу помочь?'
+            f'Здравствуйте {message.from_user.first_name}!'
         )
 
     else:
