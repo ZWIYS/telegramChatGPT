@@ -25,21 +25,16 @@ async def welcome(message: types.Message):
 @dp.message_handler()
 @anly.analytics
 async def send(message: types.Message):
-
-    if message.text == "Привет!" or message.text == "Привет":
-        await message.answer(
-            f'Здравствуйте {message.from_user.first_name}!'
-        )
-
-    else:
+    message.text = message.text.lower()
+    if message.text == message.text.lower():
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=message.text,
-            temperature=0.3,
-            max_tokens=2048,
+            temperature=1,
+            max_tokens=3500,
             top_p=1,
             frequency_penalty=0.0,
-            presence_penalty=0.6,
+            presence_penalty=0.0,
             stop=[" Human:", " AI:"]
         )
 
