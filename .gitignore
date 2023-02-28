@@ -1,1 +1,6 @@
+.DS_Store
+tokens.py
+test.py
 logs.py
+__pycache__
+.idea/
