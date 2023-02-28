@@ -1,5 +1,1 @@
-tokens.py
-.idea
-.DS_Store
-__pycache__
-logs.txt
+logs.py
