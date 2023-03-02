@@ -23,18 +23,21 @@ async def welcome(message: types.Message):
 
 # хендлер и вызов функции
 @dp.message_handler()
+# вызов хендлера аналитики
 @anly.analytics
 async def send(message: types.Message):
+    # дебаг
     message.text = message.text.lower() + "=?"
     if message.text == message.text.lower():
+        # ответ
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt=message.text,
-            temperature=1,
+            temperature=0,
             max_tokens=3500,
             top_p=0,
-            frequency_penalty=0.0,
-            presence_penalty=0.0,
+            frequency_penalty=2,
+            presence_penalty=2,
             stop=[" Human:", " AI:"]
         )
 
